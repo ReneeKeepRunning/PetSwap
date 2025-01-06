@@ -1,7 +1,6 @@
 const express= require('express')
 const router= express.Router()
 const catchAsync = require('../helper/catchAsync')
-const Product = require('../types/products')
 const {loggedCheck, validateProduct, isAuthor}= require('../middleware')
 const productsController= require('../controllers/products')
 const multer  = require('multer')

@@ -18,12 +18,12 @@
             <label for="price" class="form-label">Price</label>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="price">$</span>
-                <input type="number" class="form-control" name="product[price]" placeholder="0.00" aria-label="price" aria-describedby="price" required>
+                <input type="number" class="form-control" name="product[price]" placeholder="0.00" aria-label="price" aria-describedby="price" step="0.01" required>
                 <div class="valid-feedback">
                     looks perfect~
                 </div>
                 <div class="invalid-feedback">
-                    Please fill a price.
+                    Please fill a valid price.
                   </div>
                 </div>
          </div>
@@ -51,7 +51,7 @@
         </div>
 
         <div class="mb-3">
-            <label for="category" class="form-label">Category type</label>
+            <label for="" class="form-label">Category type</label>
             <select name="product[category]" id="category">
             <% for(let category of categories){%>
                 <option value="<%=category%>"><%=category%></option>

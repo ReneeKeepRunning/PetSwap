@@ -1,0 +1,108 @@
+/* General Styles */
+body {
+    background-color: #f4f6f8; /* Light gray background */
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Centering the Card */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/* Card Styles */
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background-color: #ffffff;
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.02); /* Slight zoom effect on hover */
+}
+
+/* Card Image */
+.card-img-top {
+    max-height: 150px;
+    object-fit: cover;
+}
+
+/* Card Body */
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #007bff; /* Bootstrap Primary Blue */
+    text-align: center;
+}
+
+/* Form Styles */
+form {
+    margin: 0;
+}
+
+.form-label {
+    font-weight: bold;
+    color: #555;
+}
+
+.form-control {
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Button Styles */
+button.btn {
+    width: 100%;
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #28a745; /* Green */
+    color: #fff;
+    border: none;
+    transition: background-color 0.2s ease-in-out;
+}
+
+button.btn:hover {
+    background-color: #218838;
+}
+
+/* Feedback Messages */
+.valid-feedback {
+    color: #28a745; /* Green for valid input */
+    font-size: 0.9rem;
+}
+
+.invalid-feedback {
+    color: #dc3545; /* Red for invalid input */
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card {
+        width: 90%;
+    }
+}

@@ -5,14 +5,13 @@ const Review = require('./types/review')
 
 
 module.exports.loggedCheck = (req, res, next) => {
-    if (req.isAuthenticated()) {
-        return next()
-    } else {
-        req.flash('error', 'Please login first')
+    if (!req.isAuthenticated()) {
         req.session.returnUrl = req.originalUrl
-        console.log(req.session.returnUrl)
-        res.redirect('/login')
+        console.log('testSuccess', req.originalUrl)
+        req.flash('error', 'Please login first')
+        return res.redirect('/login')
     }
+    next()
 }
 
 module.exports.validateProduct = (req, res, next) => {
@@ -56,4 +55,9 @@ module.exports.validateReview = (req, res, next) => {
     }
 }
 
-console.log("Loading middleware module...")
+module.exports.storeReturnUrl = (req, res, next) => {
+    if(req.session.returnUrl){
+        res.locals.returnUrl= req.session.returnUrl
+    }
+    next()
+}

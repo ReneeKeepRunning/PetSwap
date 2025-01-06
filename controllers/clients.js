@@ -22,9 +22,6 @@ module.exports.registerFormPost = async (req, res, next) => {
 }
 
 module.exports.loginForm = (req, res) => {
-    //req.session.returnUrl = req.originalUrl
-    // console.log(`test123 ${req.originalUrl}`)
-    // console.log(`testLogin ${req.session.returnUrl}`)
     res.render('clients/login')
 }
 

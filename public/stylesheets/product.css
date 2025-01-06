@@ -1,0 +1,135 @@
+/* General Styles */
+body {
+  font-family: 'Comic Sans MS', 'Arial', sans-serif; /* Cuter font style */
+  
+  margin: 0;
+  padding: 0;
+  color: #4d4d4d; /* Neutral dark gray */
+}
+
+h1 {
+  text-align: center;
+  color: #ff6f61; /* Bright coral */
+  margin: 20px 0;
+  font-size: 2.8rem;
+  font-weight: bold;
+}
+
+
+.card {
+  flex: 1 1 calc(48%); /* Two cards per row */
+  max-width: 48%; /* Ensures cards don’t exceed the row space */
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.8rem;
+  color: #ff6f61;
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.card-category {
+  font-size: 1rem;
+  color: #6b6b6b;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.card-category.price {
+  font-size: 1.2rem;
+  color: #27ae60; /* Green for price */
+  font-weight: bold;
+  text-align: center;
+}
+
+.card-category.description {
+  font-size: 1rem;
+  color: #4d4d4d;
+  margin-top: 5px;
+  text-align: justify;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  background-color: #ff6f61;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin: 10px auto;
+  width: fit-content;
+}
+
+.btn:hover {
+  background-color: #e65c50;
+  transform: scale(1.05);
+}
+
+/* Create Product Link */
+.create-product-link {
+  display: block;
+  text-align: center;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #ffc107; /* Bright yellow */
+  color: #4d4d4d;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  text-decoration: none;
+  max-width: 300px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.create-product-link:hover {
+  background-color: #ffca2c;
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .card {
+      flex: 1 1 calc(100% - 1.5rem); /* One product per row on medium screens */
+  }
+}
+
+@media (max-width: 576px) {
+  h1 {
+      font-size: 2.2rem;
+  }
+
+  .card-title {
+      font-size: 1.5rem;
+  }
+
+  .card-category {
+      font-size: 0.9rem;
+  }
+
+  .btn,
+  .create-product-link {
+      font-size: 0.9rem;
+  }
+}

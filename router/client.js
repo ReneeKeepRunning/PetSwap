@@ -1,11 +1,10 @@
 const express = require('express')
 const router = express.Router()
-const Client = require('../types/client')
 const clients= require('../controllers/clients')
 const catchAsync = require('../helper/catchAsync')
-const { application } = require('express')
 const passport = require('passport')
 const { loggedCheck } = require('../middleware')
+const { storeReturnUrl } = require('../middleware')
 
 router.route('/register')
     .get(clients.registerForm)
@@ -13,7 +12,7 @@ router.route('/register')
 
 router.route('/login')
     .get(clients.loginForm)
-    .post(passport.authenticate('local', { failureRedirect: '/login', failureFlash: true }), clients.loginFormPost)
+    .post(storeReturnUrl, passport.authenticate('local', { failureRedirect: '/login', failureFlash: true, keepSessionInfo: true }), clients.loginFormPost)
 
 router.get('/logout', loggedCheck, clients.logout)
 

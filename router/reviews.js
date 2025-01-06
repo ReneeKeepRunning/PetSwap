@@ -5,7 +5,7 @@ const expressError = require('../helper/expressError')
 const Product = require('../types/products')
 const Review = require('../types/review')
 const reviews= require('../controllers/reviews')
-const {validateReview, loggedCheck, isAuthor,  isAuthorReview}= require('../middleware')
+const {validateReview, loggedCheck,  isAuthorReview}= require('../middleware')
 
 
 router.post('/',loggedCheck, validateReview, catchAsync(reviews.reviewCreate))

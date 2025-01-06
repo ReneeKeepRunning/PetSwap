@@ -6,6 +6,7 @@ module.exports.reviewCreate = async (req, res) => {
     const review = new Review(req.body.review)
     review.author = req.user._id
     foundproduct.review.push(review)
+    console.log(review)
     await review.save()
     await foundproduct.save()
     req.flash('success', 'Check it out, You created a new review in this item!')

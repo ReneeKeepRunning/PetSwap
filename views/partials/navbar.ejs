@@ -34,7 +34,7 @@ justify-content: center;">
           <a class="nav-link" href="/dogGrooming/new">Create a Product</a>
         </li>
 
-        <% if (!signedClient) { %>
+        <% if (typeof signedClient !== 'undefined' && !signedClient) { %>
           <li class="nav-item">
             <a class="nav-link" href="/login">Login</a>
           </li>

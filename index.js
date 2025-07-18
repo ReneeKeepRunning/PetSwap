@@ -27,6 +27,8 @@ const MongoStore = require('connect-mongo');
 
 const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/grooming'
 
+mongoose.set('strictQuery', false);
+
 mongoose.connect(dbUrl, {
     useNewUrlParser: true,       // 使用新的 URL 解析器
     useUnifiedTopology: true,   // 使用统一的拓扑结构
@@ -77,11 +79,11 @@ app.use(session({
     saveUninitialized: true,
     cookie: {
         httpOnly: true,
-        //secure:true,
-        expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
+        expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
         maxAge: 1000 * 60 * 60 * 24 * 7,
     }
-}))
+}));
+
 
 app.use(flash())
 
@@ -103,10 +105,11 @@ passport.serializeUser(Client.serializeUser());
 passport.deserializeUser(Client.deserializeUser());
 
 app.use((req, res, next) => {
-    res.locals.success = req.flash('success')
-    res.locals.error = req.flash('error')
-    res.locals.signedClient = req.user
-    next()
+    res.locals.success = req.flash('success');
+    res.locals.error = req.flash('error');
+    res.locals.signedClient = req.user || null;
+    console.log("flashing message", res.locals);
+    next();
 })
 
 app.use('/dogGrooming', dogGroomingRoutes)
@@ -116,16 +119,13 @@ app.use('/', clientRoutes)
 
 
 app.get('/', (req, res) => {
-    res.render('home')
-})
+    console.log("signedClient:", req.user);
+    res.render('home', { signedClient: req.user || null });
+});
 
 app.all('*', (req, res, next) => {
     next(new expressError('page not found', 404))
 })
-
-// app.get('/dogGrooming/:id',(req,res,next)=>{
-//     next(new expressError('id-not found', 404))
-// })
 
 app.use((err, req, res, next) => {
     const { statusCode = 500 } = err
@@ -133,7 +133,10 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render('error', { err })
 })
 
-const port = process.env.PORT || 3002
+app.use(express.urlencoded({ extended: true }));
+
+
+const port = process.env.PORT || 3000
 
 
 app.listen(port, () => {

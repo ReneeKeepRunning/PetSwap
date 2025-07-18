@@ -1,41 +1,39 @@
 <% layout('layouts/boilerplate') %>
 
-<div class="container justify-content-center align-items-center my-5">
-    <div class="row">
-        <div class="col-md-6 offset-md-3 col-xl-4 offset-xl-4">
-            <div class="card shadow">
-                <img class="card-img-top" src="/img/log-img.jpg">
-                <div class="card-body">
-                    <h5 class="card-title">Register</h5>
-                    <form action="/register" method="POST" class="validation-check" novalidate>
-                <div class="mb-3">
-                    <label for="username">Username:</label>
-                    <input class="form-control" type="text" name="username" id="username" placeholder="username" autofocus required>
-                    <div class="valid-feedback">
-                        Looks good~
+    <div class="container justify-content-center align-items-center my-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+                <div class="card shadow">
+                    <img class="card-img-top" src="/img/log-img.jpg">
+                    <div class="card-body">
+                        <h5 class="card-title">Register</h5>
+                        <form action="/register" method="POST" class="validation-check" novalidate>
+                            <div class="mb-3">
+                                <label for="username">Username:</label>
+                                <input class="form-control" type="text" name="username" id="username"
+                                    placeholder="username" value="<%= formData.username || '' %>" autofocus required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email:</label>
+                                <input class="form-control" type="email" name="email" id="email" placeholder="email" value="<%= formData.email || '' %>"
+                                    required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password:</label>
+                                <input class="form-control" type="password" name="password" id="password"
+                                    placeholder="password" required>
+                                <div id="strength-bar" class="mt-1" style="height: 6px; background: #ccc;">
+                                    <div id="strength-fill" style="height: 100%; width: 0%; background: #e74c3c;"></div>
+                                </div>
+                                <p id="strength-text" class="text-muted small mt-1"></p>
+                            </div>
+
+                            <button class="btn btn-success">Sign up</button>
+                        </form>
                     </div>
                 </div>
-                 <div class="mb-3">
-                    <label for="email" class="form-label">Email:</label>
-                    <input class="form-control" type="email" name="email" id="email" placeholder="email" required>
-                    <div class="valid-feedback">
-                        Looks good~
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label" >Password:</label>
-                    <input class="form-control" type="password" name="password" id="password" placeholder="password" required>
-                    <div class="valid-feedback">
-                        Looks good~
-                    </div>
-                </div>
-                <button class="btn btn-success">Sign up</button>
-            </form>
-                </div>
-            </div> 
+            </div>
         </div>
     </div>
-</div>
-    
-   
-    

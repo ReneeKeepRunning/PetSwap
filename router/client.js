@@ -5,10 +5,14 @@ const catchAsync = require('../helper/catchAsync')
 const passport = require('passport')
 const { loggedCheck } = require('../middleware')
 const { storeReturnUrl } = require('../middleware')
+const { validateUser } = require('../middleware');
+const { checkExistingUser } = require('../middleware');
+const { storeFormData } = require('../middleware');
+
 
 router.route('/register')
     .get(clients.registerForm)
-    .post(catchAsync(clients.registerFormPost))
+    .post(storeFormData, validateUser, checkExistingUser,catchAsync(clients.registerFormPost))
 
 router.route('/login')
     .get(clients.loginForm)

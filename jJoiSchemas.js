@@ -1,6 +1,5 @@
-const basejoi = require('joi')
-const sanitizeHtml = require('sanitize-html')
-//const { validateProduct } = require('./middleware')
+const basejoi = require('joi');
+const sanitizeHtml = require('sanitize-html');
 
 const extension = (joi) => ({
     type: 'string',
@@ -12,33 +11,43 @@ const extension = (joi) => ({
         escapeHTML: {
             validate(value, helpers) {
                 const clean = sanitizeHtml(value, {
-                    allowedTag: [],
+                    allowedTags: [],
                     allowedAttributes: {},
-                })
-                if (clean !== value) return helpers.error('string.escapeHTML', { value })
-                return clean
+                });
+                if (clean !== value) {
+                    return helpers.error('string.escapeHTML', { value });
+                }
+                return clean;
             }
         }
     }
-})
-const joi = basejoi.extend(extension)
+});
+
+const joi = basejoi.extend(extension);
 
 module.exports.ProductJoiSchemas = joi.object({
     product: joi.object({
-        name: joi.string().required(),
+        name: joi.string().required().escapeHTML(),
         price: joi.number().required().min(0),
-        description: joi.string().required(),
-        location: joi.string().required(),
-        image: joi.string().required(),
-        category: joi.required(),
+        description: joi.string().required().escapeHTML(),
+        location: joi.string().required().escapeHTML(),
+        image: joi.string().required().escapeHTML(),
+        category: joi.required(), // Could add validation here if you have fixed options
         deleteImages: joi.array()
-    })
-})
-// if(!req.body) throw new expressError('Invalid data', 400)
+    }).required()
+});
 
 module.exports.ReviewJoiSchema = joi.object({
     review: joi.object({
-        body: joi.string().required(),
-        rating: joi.number().required()
+        body: joi.string().required().escapeHTML(),
+        rating: joi.number().required().min(1).max(5)
     }).required()
-})
+});
+
+module.exports.UserJoiSchema = joi.object({
+    user: joi.object({
+        username: joi.string().min(3).max(20).required().escapeHTML(),
+        email: joi.string().email().required().escapeHTML(),
+        password: joi.string().min(6).required()
+    }).required()
+});

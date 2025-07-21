@@ -31,9 +31,9 @@ module.exports.ProductJoiSchemas = joi.object({
         price: joi.number().required().min(0),
         description: joi.string().required().escapeHTML(),
         location: joi.string().required().escapeHTML(),
-        image: joi.string().required().escapeHTML(),
-        category: joi.required(), // Could add validation here if you have fixed options
-        deleteImages: joi.array()
+        image: joi.string().optional().escapeHTML(), // Changed to optional since it's handled separately
+        category: joi.string().required(), // Added string() type
+        deleteImages: joi.array().items(joi.string()).optional()
     }).required()
 });
 

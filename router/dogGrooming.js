@@ -9,13 +9,13 @@ const upload = multer({ storage })
 
 router.route('/')
     .get(catchAsync(productsController.index))
-    .post(loggedCheck, validateProduct, upload.array('image'),catchAsync(productsController.newFormPost))
+    .post(loggedCheck, upload.array('image'), validateProduct, catchAsync(productsController.newFormPost))
 
 router.get('/new', loggedCheck, productsController.newForm)
 
 router.route('/:id')
     .get(catchAsync(productsController.showById))
-    .put(isAuthor, validateProduct, upload.array('image'), catchAsync(productsController.editFormPost))
+    .put(isAuthor, upload.array('image'), validateProduct, catchAsync(productsController.editFormPost))
     .delete(loggedCheck, isAuthor, catchAsync(productsController.productDelete))
 
 router.get('/:id/edit', loggedCheck, isAuthor, catchAsync(productsController.editForm))

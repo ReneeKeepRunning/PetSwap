@@ -1,12 +1,12 @@
 <% layout('layouts/boilerplate')%>
-<div class="row">
-    <div class="col-6 offset-3">
+<div class="error-container">
+    <div class="error-content">
         <div class="alert alert-danger" role="alert">
             <h4 class="alert-heading"><%=err.message%></h4>
             <% if(process.env.NODE_ENV !=='production'){ %>
-            <p><%= err.stack %></p>  
+                <p class="error-stack"><%= err.stack %></p>  
             <% } %>
         </div>
+        <a href="/" class="btn btn-primary">Return to Home</a>
     </div>
 </div>
-

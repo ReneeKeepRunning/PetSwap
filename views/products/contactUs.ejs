@@ -1,25 +1,24 @@
 <% layout('layouts/boilerplate') %>
-<div>
-    
-    <h1 class="text-center"><%= title %></h1>
-    <% if (user) { %>
-        <p>Welcome, <%= user.username %>! Feel free to reach out to us below:</p>
-    <% } else { %>
-        <p>We'd love to hear from you. Please use the form below to get in touch!</p>
-    <% } %>
-    <form action="/contactUs" method="POST" class="mt-4">
-        <div class="mb-3">
-            <label for="name" class="form-label">Your Name</label>
-            <input type="text" class="form-control" id="name" name="name" required>
-        </div>
-        <div class="mb-3">
-            <label for="email" class="form-label">Your Email</label>
-            <input type="email" class="form-control" id="email" name="email" required>
-        </div>
-        <div class="mb-3">
-            <label for="message" class="form-label">Your Message</label>
-            <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Send</button>
-    </form>
+<div class="contact-container">
+  <h1 class="text-center"><%= title %></h1>
+  <% if (user) { %>
+    <p>Welcome, <%= user.username %>! Feel free to reach out to us below:</p>
+  <% } else { %>
+    <p>We'd love to hear from you. Please use the form below to get in touch!</p>
+  <% } %>
+  <form action="/contactUs" method="POST" class="mt-4">
+    <div class="mb-3">
+      <label for="name" class="form-label">Your Name</label>
+      <input type="text" class="form-control" id="name" name="name" required>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Your Email</label>
+      <input type="email" class="form-control" id="email" name="email" required>
+    </div>
+    <div class="mb-3">
+      <label for="message" class="form-label">Your Message</label>
+      <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Send</button>
+  </form>
 </div>

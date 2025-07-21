@@ -1,25 +1,7 @@
-<link rel="stylesheet" href="/stylesheets/navbar.css">
-
-<nav class="navbar sticky-top navbar-expand-lg navbar-light" style="box-sizing: border-box;
-font-family: 'Comic Sans MS', 'Arial', sans-serif;
-background-color: #fef6e4;
-color: #4a4a4a;
-height: 100vh;
-display: flex;
-align-items: center;
-justify-content: center;">
-  
+<nav class="navbar sticky-top navbar-expand-lg navbar-light petswap-navbar">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">PetSwap</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNavDropdown"
-      aria-controls="navbarNavDropdown"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -28,12 +10,11 @@ justify-content: center;">
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/dogGrooming"> Products showing</a>
+          <a class="nav-link" href="/dogGrooming">Products showing</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/dogGrooming/new">Create a Product</a>
         </li>
-
         <% if (typeof signedClient !== 'undefined' && !signedClient) { %>
           <li class="nav-item">
             <a class="nav-link" href="/login">Login</a>
@@ -46,23 +27,14 @@ justify-content: center;">
             <a class="nav-link" href="/logout">Logout</a>
           </li>
         <% } %>
-
         <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            id="navbarDropdownMenuLink"
-            href="#"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" href="#" role="button" data-bs-toggle="dropdown">
             FAQs
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item" href="/contactUs">Contact Us</a></li>
           </ul>
         </li>
-        
       </ul>
     </div>
   </div>

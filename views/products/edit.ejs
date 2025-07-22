@@ -6,7 +6,6 @@
             <div class="form-group">
                 <label for="name" class="form-label">Product name</label> 
                 <input type="text" class="form-control" name="product[name]" id="name" placeholder="Product name" value="<%=foundproduct.name%>" required>
-                <div class="feedback valid-feedback">looks perfect~</div>
                 <div class="feedback invalid-feedback">Please fill a product name.</div>
             </div>
             
@@ -15,22 +14,25 @@
                 <div class="input-group">
                     <span class="input-group-text">$</span>
                     <input type="number" class="form-control" name="product[price]" aria-label="price" value="<%=foundproduct.price%>" required>
-                    <div class="feedback valid-feedback">looks perfect~</div>
                     <div class="feedback invalid-feedback">Please fill a price.</div>
                 </div>
             </div>
 
             <div class="form-group">
+                <label for="BriefDes" class="form-label">Brief Description</label>
+                <textarea class="form-control" id="briefDes" name="product[briefDes]" maxlength="60" required><%=foundproduct.briefDes%></textarea>
+                <div class="feedback invalid-feedback">Please fill a brief description.</div>
+            </div>
+
+            <div class="form-group">
                 <label for="description" class="form-label">Product description</label>
                 <textarea class="form-control" id="description" name="product[description]" required><%=foundproduct.description%></textarea>
-                <div class="feedback valid-feedback">looks perfect~</div>
                 <div class="feedback invalid-feedback">Please fill a description.</div>
             </div>
 
             <div class="form-group">
                 <label for="location" class="form-label">Pick-up point / shipping from</label>
-                <textarea class="form-control" id="location" name="product[location]" required><%=foundproduct.location%></textarea>
-                <div class="feedback valid-feedback">looks perfect~</div>
+                <textarea class="form-control" id="location" name="product[location]" maxlength="40" required><%=foundproduct.location%></textarea>
                 <div class="feedback invalid-feedback">Please fill a location.</div>
             </div>
 

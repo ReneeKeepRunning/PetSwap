@@ -25,10 +25,26 @@
     <div class="product-details">
         <h1 class="product-title"><%=foundproduct.name%></h1>
         <div class="product-meta">
-            <p class="product-category">Category: <%= foundproduct.category%></p>
-            <p class="product-price">Price: $<%= foundproduct.price%></p>
-            <p class="product-description"><%= foundproduct.description%></p>
-            <p class="product-location">Pick-up Location / shipping: <%= foundproduct.location%></p>
+            <div>
+                <p class="product-price">CATEGORY:</p>
+                <p class="product-category"> <%= foundproduct.category%></p>
+            </div>
+            <div>
+                <p class="product-price">PRICE:</p>
+                <p> $<%= foundproduct.price%></p>
+            </div>
+            <div>
+                <p class="product-price">ABOUT:</p>
+                <p class="product-description"><%= foundproduct.briefDes%></p>
+            </div>
+            <div>
+                <p class="product-price">DESCRIPTION:</p>
+                <p class="product-description"><%= foundproduct.description%></p>
+            </div>
+            <div>
+                <p class="product-price">LOCATION:</p>
+                <p class="product-location"> <%= foundproduct.location%></p>
+            </div>
             <p class="product-author">Created by: 
                 <% if(foundproduct.author!==undefined && foundproduct.author.length>0){ %>
                     <%=foundproduct.author[0].username%>
@@ -42,7 +58,7 @@
             <a class="btn btn-primary" href="/dogGrooming">Back to products</a>
             <% if(signedClient && foundproduct.author[0].equals(signedClient._id)){ %>
                 <a class="btn btn-secondary" href="/dogGrooming/<%=foundproduct._id%>/edit">Edit</a>
-                <form action="/dogGrooming/<%=foundproduct._id%>?_method=DELETE" method="POST">
+                <form class="w-100" action="/dogGrooming/<%=foundproduct._id%>?_method=DELETE" method="POST">
                     <button class="btn btn-danger">Delete</button>
                 </form>
             <% } %>
@@ -72,7 +88,6 @@
                 <div class="form-group">
                     <label class="form-label" for="body">Review</label>
                     <textarea class="form-control" name="review[body]" id="body" required></textarea>
-                    <div class="feedback valid-feedback">looks perfect~</div>
                     <div class="feedback invalid-feedback">Please fill a comment here.</div>
                 </div>
                 <button class="btn btn-success">Submit</button>
@@ -84,12 +99,12 @@
                 <% for (let r of foundproduct.review) { %>
                     <div class="review-card">
                         <div class="review-header">
-                            <p class="review-author"><%=r.author.username%></p>
+                            <p class="review-author">COMMENTED BY: <%=r.author.username%></p>
                             <p class="starability-result" data-rating="<%=r.rating%>">
-                                Rated: <%=r.rating%> stars
+                                RATED: <%=r.rating%> stars
                             </p>
                         </div>
-                        <p class="review-body"><%=r.body%></p>
+                        <p class="review-body">SAID: <%=r.body%></p>
                         <% if(signedClient && r.author.equals(signedClient._id)){ %>
                             <form action="/dogGrooming/<%=foundproduct._id%>/reviews/<%=r._id%>?_method=DELETE" method="POST">
                                 <button class="btn btn-danger btn-sm">Delete</button>

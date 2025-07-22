@@ -19,8 +19,11 @@ const productSchema = new mongoose.Schema({
         type: Number,
         min: 0
     },
-    petCategory: {
-        type: String,
+    // petCategory: {
+    //     type: String,
+    // },
+    briefDes: {
+        type: String
     },
     description: {
         type: String
@@ -35,17 +38,17 @@ const productSchema = new mongoose.Schema({
     location: {
         type: String
     },
-    geometry: {
-        type: {
-            type: String,
-            enum: ['Point'],
-            required: true
-        },
-        coordinates: {
-            type: [Number],
-            required: true
-        }
-    },
+    // geometry: {
+    //     type: {
+    //         type: String,
+    //         enum: ['Point'],
+    //         required: true
+    //     },
+    //     coordinates: {
+    //         type: [Number],
+    //         required: true
+    //     }
+    // },
     author: [
         {
             type: mongoose.Schema.Types.ObjectId,

@@ -15,18 +15,6 @@
         <li class="nav-item">
           <a class="nav-link" href="/dogGrooming/new">Create a Product</a>
         </li>
-        <% if (typeof signedClient !== 'undefined' && !signedClient) { %>
-          <li class="nav-item">
-            <a class="nav-link" href="/login">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/register">Register</a>
-          </li>
-        <% } else { %>
-          <li class="nav-item">
-            <a class="nav-link" href="/logout">Logout</a>
-          </li>
-        <% } %>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" href="#" role="button" data-bs-toggle="dropdown">
             FAQs
@@ -36,6 +24,25 @@
           </ul>
         </li>
       </ul>
+
+      <ul class="navbar-nav ms-auto">
+        <% if (typeof signedClient !== 'undefined' && !signedClient) { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">          
+            <i class="fa-solid fa-lock"></i>
+Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/register">Register</a>
+        </li>
+        <% } else { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">          
+            <i class="fa-solid fa-right-to-bracket"></i>
+Logout</a>
+        </li>
+      <% } %>
+    </ul>
     </div>
   </div>
 </nav>

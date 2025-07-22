@@ -17,19 +17,19 @@ module.exports.newForm= (req, res) => {
 }
 
 module.exports.newFormPost= async (req, res, next) => {
-    const geoData= await geocoder.forwardGeocode({
-        query:req.body.product.location,
-        limit: 1
-    }).send()
+    // const geoData= await geocoder.forwardGeocode({
+    //     query:req.body.product.location,
+    //     limit: 1
+    // }).send()
     const newProduct = new Product(req.body.product);
-    newProduct.geometry= geoData.body.features[0].geometry
+    // newProduct.geometry= geoData.body.features[0].geometry
     newProduct.image= req.files.map(f =>({url: f.path, filename: f.filename}))
     newProduct.author= req.user._id
     await newProduct.save()
     console.log(newProduct)
     req.flash('success', 'You are successfully made a new product.')
     res.redirect(`/dogGrooming/${newProduct._id}`)
-}
+}  
 
 module.exports.showById= async (req, res) => {
     const { id } = req.params;

@@ -26,16 +26,18 @@ const extension = (joi) => ({
 const joi = basejoi.extend(extension);
 
 module.exports.ProductJoiSchemas = joi.object({
-    product: joi.object({
-        name: joi.string().required().escapeHTML(),
-        price: joi.number().required().min(0),
-        description: joi.string().required().escapeHTML(),
-        location: joi.string().required().escapeHTML(),
-        image: joi.string().optional().escapeHTML(), // Changed to optional since it's handled separately
-        category: joi.string().required(), // Added string() type
-        deleteImages: joi.array().items(joi.string()).optional()
-    }).required()
+  product: joi.object({
+    name: joi.string().required().escapeHTML(),
+    price: joi.number().required().min(0),
+    briefDes: joi.string().required().escapeHTML(),
+    description: joi.string().required().escapeHTML(),
+    location: joi.string().required().escapeHTML(),
+    image: joi.string().optional().escapeHTML(), 
+    category: joi.string().required(),
+    deleteImages: joi.array().items(joi.string()).optional()
+  }).required()
 });
+
 
 module.exports.ReviewJoiSchema = joi.object({
     review: joi.object({

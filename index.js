@@ -143,7 +143,6 @@ app.listen(port, () => {
     console.log(`listening on ${port}`)
 })
 
-// if(!req.body.foundproduct) throw new expressError('invalid data')
 
 
 /**

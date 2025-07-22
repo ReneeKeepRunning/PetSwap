@@ -19,14 +19,20 @@
             </div>
 
             <div class="form-group">
+                <label for="BriefDes" class="form-label">Brief Description</label>
+                <textarea class="form-control" id="briefDes" name="product[briefDes]" maxlength="60" required></textarea>
+                <div class="feedback invalid-feedback">Please fill a brief description.</div>
+            </div>
+
+            <div class="form-group">
                 <label for="description" class="form-label">Product description</label>
-                <textarea class="form-control" id="description" name="product[description]" required></textarea>
+                <textarea class="form-control" id="description" name="product[description]" maxlength="60" required></textarea>
                 <div class="feedback invalid-feedback">Please fill a description.</div>
             </div>
 
             <div class="form-group">
                 <label for="location" class="form-label">Pick-up point / shipping from</label>
-                <textarea class="form-control" id="location" name="product[location]" required></textarea>
+                <textarea class="form-control" id="location" name="product[location]" maxlength="40" required></textarea>
                 <div class="feedback invalid-feedback">Please fill a location.</div>
             </div>
 

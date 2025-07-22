@@ -52,6 +52,17 @@
                     Author not found
                 <% } %>
             </p>
+            <% if(signedClient){ %>
+                <div>
+                    <p class="product-price">CONTACT:</p>
+                    <p> <%=foundproduct.contact%></p>
+                </div>
+            <%}else{ %>
+                <div>
+                    <h5>Do you want to contact Seller? Please <a class="product-price" href="/login">Login</a> or <a class="product-price" href="/Register">Register</a> first</h5>
+                    
+                </div>
+            <%}%>
         </div>
 
         <div class="product-actions">

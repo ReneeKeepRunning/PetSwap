@@ -20,19 +20,19 @@
 
             <div class="form-group">
                 <label for="BriefDes" class="form-label">Brief Description</label>
-                <textarea class="form-control" id="briefDes" name="product[briefDes]" maxlength="60" required><%=foundproduct.briefDes%></textarea>
+                <textarea class="form-control" id="briefDes" name="product[briefDes]" maxlength="70" required><%=foundproduct.briefDes%></textarea>
                 <div class="feedback invalid-feedback">Please fill a brief description.</div>
             </div>
 
             <div class="form-group">
                 <label for="description" class="form-label">Product description</label>
-                <textarea class="form-control" id="description" name="product[description]" required><%=foundproduct.description%></textarea>
+                <textarea class="form-control" id="description" name="product[description]" maxlength="300" required><%=foundproduct.description%></textarea>
                 <div class="feedback invalid-feedback">Please fill a description.</div>
             </div>
 
             <div class="form-group">
                 <label for="location" class="form-label">Pick-up point / shipping from</label>
-                <textarea class="form-control" id="location" name="product[location]" maxlength="40" required><%=foundproduct.location%></textarea>
+                <textarea class="form-control" id="location" name="product[location]" maxlength="100" required><%=foundproduct.location%></textarea>
                 <div class="feedback invalid-feedback">Please fill a location.</div>
             </div>
 
@@ -43,6 +43,24 @@
                         <option value="<%=categories[i]%>" <%= foundproduct.category === categories[i] ? 'selected' :''%>><%=categories[i]%></option>
                     <% } %>
                 </select>
+            </div>
+
+            <div class="form-group">
+            <label for="contact" class="form-label">Contact Number:</label>
+            <div class="input-group">
+                <span class="input-group-text">+61</span>
+                <input
+                type="tel"
+                class="form-control"
+                name="product[contact]"
+                id="contact"
+                placeholder="e.g. 412 345 678"
+                pattern="[0-9]{9}"
+                value="<%=foundproduct.contact%>"
+                required
+                >
+            </div>
+            <div class="feedback invalid-feedback">Please enter a valid contact number (9 digits).</div>
             </div>
 
             <div class="form-group">

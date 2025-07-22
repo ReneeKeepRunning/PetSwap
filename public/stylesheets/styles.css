@@ -453,6 +453,10 @@ input[type="button"]:hover {
     .contact-container {
         padding: 1rem;
     }
+
+    .product-details{
+      text-align: center;
+    }
 }
 
 /* login/register */

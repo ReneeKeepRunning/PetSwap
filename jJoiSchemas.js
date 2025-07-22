@@ -34,6 +34,13 @@ module.exports.ProductJoiSchemas = joi.object({
     location: joi.string().required().escapeHTML(),
     image: joi.string().optional().escapeHTML(), 
     category: joi.string().required(),
+    contact: joi.string()
+      .pattern(/^[0-9]{9}$/)
+      .required()
+      .escapeHTML()
+      .messages({
+        'string.pattern.base': 'Contact number must be 9 digits (exclude +61).',
+      }),
     deleteImages: joi.array().items(joi.string()).optional()
   }).required()
 });

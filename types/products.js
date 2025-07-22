@@ -31,9 +31,9 @@ const productSchema = new mongoose.Schema({
     category: {
         type: String
     },
-    condition: {
-        type: String
-    },
+    // condition: {
+    //     type: String
+    // },
     image: [imageSchema],
     location: {
         type: String
@@ -49,6 +49,10 @@ const productSchema = new mongoose.Schema({
     //         required: true
     //     }
     // },
+    contact: {
+        type: String,
+        required: true
+    },
     author: [
         {
             type: mongoose.Schema.Types.ObjectId,
